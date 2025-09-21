@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViralLaunch | Your Automated TikTok Dropshipping Business</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Calendly link widget begin -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <!-- Calendly link widget end -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            color: #1e293b; /* slate-800 */
+        }
+        .gradient-text {
+            background-image: linear-gradient(to right, #f43f5e, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        .gradient-button {
+             background-image: linear-gradient(to right, #f43f5e 0%, #f97316 50%, #f43f5e 100%);
+             background-size: 200% auto;
+             transition: all 0.4s ease-in-out;
+             color: white;
+        }
+        .gradient-button:hover {
+            background-position: right center;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(244, 63, 94, 0.2);
+        }
+        .feature-card {
+            background: white;
+            border: 1px solid #e2e8f0; /* slate-200 */
+            border-radius: 1.5rem;
+            transition: all 0.3s ease-in-out;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: #f43f5e;
+            box-shadow: 0 15px 30px rgba(30, 41, 59, 0.08);
+        }
+        .hero-bg {
+            position: relative;
+            overflow: hidden;
+            background-color: #f8fafc;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(#e2e8f0 1px, transparent 0);
+            background-size: 30px 30px;
+            z-index: 0;
+        }
+         .hero-bg::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 150%;
+            padding-bottom: 150%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(244, 63, 94, 0.05), transparent 40%);
+            transform: translate(-50%, -50%);
+            animation: pulse-bg 10s infinite ease-in-out;
+            z-index: -1;
+        }
+
+        /* Animations */
+        @keyframes pulse-bg {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+        }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @keyframes text-slide-in {
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        .hero-title-word {
+            display: inline-block;
+            opacity: 0;
+            animation: text-slide-in 0.8s forwards;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+
+        .pulsing-cta {
+             animation: pulse-button 2s infinite;
+        }
+        @keyframes pulse-button {
+            0% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(244, 63, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-slate-50/80 backdrop-blur-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#" class="text-3xl font-bold">
+                    Viral<span class="gradient-text">Launch</span>
+                </a>
+                <nav class="hidden md:flex items-center space-x-8 text-slate-600 font-medium">
+                    <a href="#included" class="hover:text-rose-500 transition-colors">What's Included</a>
+                    <a href="#why-us" class="hover:text-rose-500 transition-colors">Why Us</a>
+                    <a href="#how-it-works" class="hover:text-rose-500 transition-colors">How It Works</a>
+                    <a href="#pricing" class="hover:text-rose-500 transition-colors">Pricing</a>
+                    <a href="#faq" class="hover:text-rose-500 transition-colors">FAQ</a>
+                </nav>
+                <a href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/rtanjil99/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=f8fafc&text_color=1e293b&primary_color=f97316'});return false;" class="hidden md:block gradient-button font-semibold px-6 py-3 rounded-xl">
+                    Launch My Store
+                </a>
+                <button id="mobile-menu-button" class="md:hidden text-slate-800">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white m-4 rounded-lg shadow-lg border border-slate-200">
+            <a href="#included" class="block text-center py-3 text-slate-600 font-medium hover:text-rose-500 transition-colors">What's Included</a>
+            <a href="#why-us" class="block text-center py-3 text-slate-600 font-medium hover:text-rose-500 transition-colors">Why Us</a>
+            <a href="#how-it-works" class="block text-center py-3 text-slate-600 font-medium hover:text-rose-500 transition-colors">How It Works</a>
+            <a href="#pricing" class="block text-center py-3 text-slate-600 font-medium hover:text-rose-500 transition-colors">Pricing</a>
+            <a href="#faq" class="block text-center py-3 text-slate-600 font-medium hover:text-rose-500 transition-colors">FAQ</a>
+            <div class="p-4">
+                <a href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/rtanjil99/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=f8fafc&text_color=1e293b&primary_color=f97316'});return false;" class="block text-center gradient-button font-semibold w-full px-6 py-3 rounded-lg">Launch My Store</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative pt-32 pb-20 md:pt-48 md:pb-24 hero-bg">
+            <div class="container mx-auto px-6 text-center relative z-10">
+                <div class="max-w-4xl mx-auto">
+                    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 mb-6 hero-title">
+                        <span class="hero-title-word" style="animation-delay: 0.1s;">Your</span> 
+                        <span class="hero-title-word" style="animation-delay: 0.2s;">Automated</span> 
+                        <span class="hero-title-word" style="animation-delay: 0.3s;">TikTok</span> 
+                        <span class="hero-title-word" style="animation-delay: 0.4s;">Dropshipping</span> 
+                        <span class="hero-title-word" style="animation-delay: 0.5s;">Business.</span>
+                        <br class="hidden md:block">
+                        <span class="gradient-text hero-title-word" style="animation-delay: 0.7s;">100%</span> 
+                        <span class="gradient-text hero-title-word" style="animation-delay: 0.8s;">Done</span> 
+                        <span class="gradient-text hero-title-word" style="animation-delay: 0.9s;">For</span> 
+                        <span class="gradient-text hero-title-word" style="animation-delay: 1s;">You.</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-10 hero-title-word" style="animation-delay: 1.2s;">
+                        We build your store, find winning products, connect fast US suppliers, and automate fulfillment. You get a hands-free business ready to make sales, with ZERO inventory headaches.
+                    </p>
+                    <div class="flex justify-center items-center flex-wrap gap-4 md:gap-6 mb-12 hero-title-word" style="animation-delay: 1.4s;">
+                       <span class="flex items-center font-semibold text-slate-700"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mr-2"></i>No Inventory Needed</span>
+                       <span class="flex items-center font-semibold text-slate-700"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mr-2"></i>Fast US-Based Shipping</span>
+                       <span class="flex items-center font-semibold text-slate-700"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mr-2"></i>We Build Everything</span>
+                    </div>
+                    <div class="hero-title-word" style="animation-delay: 1.5s;">
+                         <a href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/rtanjil99/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=f8fafc&text_color=1e293b&primary_color=f97316'});return false;" class="gradient-button font-bold text-lg px-10 py-4 rounded-2xl inline-block pulsing-cta">
+                            Get Started Today
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Social Proof Bar -->
+        <section class="py-12 bg-white">
+            <div class="container mx-auto px-6">
+                <p class="text-center text-slate-500 font-semibold uppercase tracking-wider">Your Gateway to a Viral Brand</p>
+                <div class="flex justify-around items-center max-w-4xl mx-auto mt-6 grayscale opacity-60">
+                    <img src="https://logo.clearbit.com/tiktok.com" class="h-8" alt="TikTok">
+                    <img src="https://logo.clearbit.com/shopify.com" class="h-8" alt="Shopify">
+                    <img src="https://logo.clearbit.com/forbes.com" class="h-8" alt="Forbes">
+                    <img src="https://logo.clearbit.com/entrepreneur.com" class="h-8" alt="Entrepreneur">
+                    <img src="https://logo.clearbit.com/meta.com" class="h-8" alt="Meta">
+                </div>
+            </div>
+        </section>
+        
+        <!-- Who This Is For Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Is This You?</h2>
+                    <p class="text-slate-600 mb-12">Our Done-For-You service is designed for a specific type of entrepreneur. If you see yourself below, we can help.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Profile 1 -->
+                    <div class="text-center p-6 border border-slate-200 rounded-2xl reveal">
+                        <i data-lucide="briefcase" class="w-12 h-12 text-rose-500 mx-auto mb-4"></i>
+                        <h3 class="font-bold text-lg">The Aspiring Entrepreneur</h3>
+                        <p class="text-slate-600 text-sm">You want to start an online business but don't know where to begin and want to avoid common mistakes.</p>
+                    </div>
+                    <!-- Profile 2 -->
+                    <div class="text-center p-6 border border-slate-200 rounded-2xl reveal" style="transition-delay: 150ms;">
+                        <i data-lucide="clock" class="w-12 h-12 text-rose-500 mx-auto mb-4"></i>
+                        <h3 class="font-bold text-lg">The Busy Professional</h3>
+                        <p class="text-slate-600 text-sm">You have a demanding job but want a side income stream that doesn't require 40+ hours a week to manage.</p>
+                    </div>
+                    <!-- Profile 3 -->
+                    <div class="text-center p-6 border border-slate-200 rounded-2xl reveal" style="transition-delay: 300ms;">
+                        <i data-lucide="trending-up" class="w-12 h-12 text-rose-500 mx-auto mb-4"></i>
+                        <h3 class="font-bold text-lg">The Existing Brand Owner</h3>
+                        <p class="text-slate-600 text-sm">You already have a brand and want to quickly expand into the lucrative TikTok Shop marketplace without the learning curve.</p>
+                    </div>
+                    <!-- Profile 4 -->
+                    <div class="text-center p-6 border border-slate-200 rounded-2xl reveal" style="transition-delay: 450ms;">
+                        <i data-lucide="user-plus" class="w-12 h-12 text-rose-500 mx-auto mb-4"></i>
+                        <h3 class="font-bold text-lg">The Savvy Investor</h3>
+                        <p class="text-slate-600 text-sm">You see the opportunity in e-commerce and want to deploy capital into a tangible business asset built for cash flow.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Why TikTok Shop Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Why TikTok Shop is the <span class="gradient-text">2025 Gold Rush</span></h2>
+                    <p class="text-slate-600 mb-12">This isn't just another platform. This is a ground-floor opportunity like Amazon in 2015. Here's why the game has changed.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <!-- Old School Dropshipping -->
+                    <div class="bg-slate-100 border border-slate-200 p-8 rounded-2xl reveal">
+                        <h3 class="text-2xl font-bold mb-6 text-center text-slate-500">Old School Dropshipping</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start"><i data-lucide="users" class="w-6 h-6 text-slate-400 mr-3 mt-1 flex-shrink-0"></i><span><strong class="text-slate-800">Hyper-Saturated Market:</strong> Thousands of stores selling the exact same products.</span></li>
+                            <li class="flex items-start"><i data-lucide="copy" class="w-6 h-6 text-slate-400 mr-3 mt-1 flex-shrink-0"></i><span><strong class="text-slate-800">Copycat Stores Appear Overnight:</strong> A winning product gets cloned by competitors within days.</span></li>
+                            <li class="flex items-start"><i data-lucide="dollar-sign" class="w-6 h-6 text-slate-400 mr-3 mt-1 flex-shrink-0"></i><span><strong class="text-slate-800">Total Ad Dependency:</strong> If you're not constantly running paid ads, your sales drop to zero.</span></li>
+                             <li class="flex items-start"><i data-lucide="mouse-pointer-click" class="w-6 h-6 text-slate-400 mr-3 mt-1 flex-shrink-0"></i><span><strong class="text-slate-800">Fragmented Experience:</strong> Customers leave the social app to buy from your external Shopify store, killing conversion rates.</span></li>
+                        </ul>
+                    </div>
+                    <!-- The TikTok Shop Revolution -->
+                    <div class="bg-white border-2 border-rose-500 shadow-2xl shadow-rose-500/10 p-8 rounded-2xl reveal">
+                        <h3 class="text-2xl font-bold mb-6 text-center">The TikTok Shop Revolution</h3>
+                         <ul class="space-y-4">
+                            <li class="flex items-start"><i data-lucide="sparkles" class="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0"></i><span><strong class="text-slate-800">A Blue Ocean Opportunity:</strong> A new, untapped marketplace with millions of buyers and far less competition.</span></li>
+                            <li class="flex items-start"><i data-lucide="shield-check" class="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0"></i><span><strong class="text-slate-800">Built-in "Viral" Traffic:</strong> The algorithm is designed to make products go viral. Getting organic sales is easier than ever.</span></li>
+                            <li class="flex items-start"><i data-lucide="zap" class="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0"></i><span><strong class="text-slate-800">Paid Ads Are Optional:</strong> Many successful shops thrive entirely on organic, creator-driven traffic, keeping profits high.</span></li>
+                             <li class="flex items-start"><i data-lucide="shopping-cart" class="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0"></i><span><strong class="text-slate-800">Seamless In-App Checkout:</strong> Customers watch a video and buy directly within the app, leading to insane conversion rates.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What's Included Section -->
+        <section id="included" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                 <div class="text-center max-w-3xl mx-auto reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">The Complete Turnkey Business Package</h2>
+                    <p class="text-slate-600 mb-12">We handle every critical component to ensure your business is launch-ready and built for growth.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Included Item 1 -->
+                    <div class="feature-card p-8 reveal">
+                        <i data-lucide="store" class="w-12 h-12 text-rose-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">DFY TikTok Shop Build</h3>
+                        <p class="text-slate-600">You get a fully-branded, conversion-optimized TikTok Shop built on a premium theme. We handle everything: logo design, graphics, and compelling product page copy.</p>
+                    </div>
+                     <!-- Included Item 2 -->
+                    <div class="feature-card p-8 reveal" style="transition-delay: 100ms;">
+                        <i data-lucide="search" class="w-12 h-12 text-rose-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Winning Product Research</h3>
+                        <p class="text-slate-600">We use a 10-point data-driven checklist to find products with proven demand, high virality potential, and healthy profit margins (3x+ markup).</p>
+                    </div>
+                     <!-- Included Item 3 -->
+                    <div class="feature-card p-8 reveal" style="transition-delay: 200ms;">
+                        <i data-lucide="truck" class="w-12 h-12 text-rose-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">US Supplier Automation</h3>
+                        <p class="text-slate-600">We connect your store to vetted US-based suppliers. Orders are automatically sent for fulfillment, ensuring fast 5-7 day shipping for happy customers.</p>
+                    </div>
+                     <!-- Included Item 4 -->
+                    <div class="feature-card p-8 reveal" style="transition-delay: 300ms;">
+                        <i data-lucide="megaphone" class="w-12 h-12 text-rose-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Creator Marketing Kit</h3>
+                        <p class="text-slate-600">We build your affiliate program and perform direct outreach to 100+ micro-influencers to get your products featured in authentic video content.</p>
+                    </div>
+                     <!-- Included Item 5 -->
+                    <div class="feature-card p-8 reveal" style="transition-delay: 400ms;">
+                        <i data-lucide="target" class="w-12 h-12 text-rose-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Paid Ads Management</h3>
+                        <p class="text-slate-600">Ready for hyperspeed? Our optional ad management service handles campaign creation, targeting, and optimization to scale your sales profitably.</p>
+                    </div>
+                     <!-- Included Item 6 -->
+                    <div class="feature-card p-8 reveal" style="transition-delay: 500ms;">
+                        <i data-lucide="life-buoy" class="w-12 h-12 text-rose-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Dedicated Support</h3>
+                        <p class="text-slate-600">You're not just a number. We provide ongoing technical and strategic support to ensure you're confident and successful on your journey.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Us Section -->
+        <section id="why-us" class="py-20">
+            <div class="container mx-auto px-6">
+                 <div class="text-center max-w-3xl mx-auto reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Trust <span class="gradient-text">ViralLaunch</span>?</h2>
+                    <p class="text-slate-600 mb-12">There are other services, but none offer our unique blend of expertise, focus, and dedication to your success.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Reason 1 -->
+                    <div class="text-center reveal">
+                        <div class="mx-auto w-20 h-20 rounded-full bg-rose-100 flex items-center justify-center border-4 border-white shadow-md mb-6"><i data-lucide="users" class="w-10 h-10 text-rose-500"></i></div>
+                        <h3 class="text-xl font-bold mb-2">E-commerce Veterans</h3>
+                        <p class="text-slate-600">Our team isn't new to this. We're seasoned e-commerce professionals who have built, scaled, and sold multiple successful online stores. We know what works because we've done it.</p>
+                    </div>
+                    <!-- Reason 2 -->
+                     <div class="text-center reveal" style="transition-delay: 200ms;">
+                        <div class="mx-auto w-20 h-20 rounded-full bg-rose-100 flex items-center justify-center border-4 border-white shadow-md mb-6"><i data-lucide="map-pin" class="w-10 h-10 text-rose-500"></i></div>
+                        <h3 class="text-xl font-bold mb-2">US-Supplier Focused</h3>
+                        <p class="text-slate-600">We refuse to use slow, unreliable overseas suppliers. Our entire model is built around fast US-based shipping, which is the #1 factor for customer satisfaction and long-term brand success.</p>
+                    </div>
+                    <!-- Reason 3 -->
+                     <div class="text-center reveal" style="transition-delay: 400ms;">
+                        <div class="mx-auto w-20 h-20 rounded-full bg-rose-100 flex items-center justify-center border-4 border-white shadow-md mb-6"><i data-lucide="rocket" class="w-10 h-10 text-rose-500"></i></div>
+                        <h3 class="text-xl font-bold mb-2">Marketing-First Approach</h3>
+                        <p class="text-slate-600">A pretty store is useless without traffic. Unlike others, we build your marketing foundation from day one with our Creator Outreach program, giving you a running start on sales.</p>
+                    </div>
+                </div>
+
+                <!-- Founder Note -->
+                <div class="max-w-4xl mx-auto mt-20 reveal">
+                     <div class="bg-slate-100 rounded-2xl p-8 md:flex items-center gap-8">
+                        <img src="https://i.pravatar.cc/150?u=a042581f4e29026704a" alt="Founder" class="w-24 h-24 md:w-32 md:h-32 rounded-full mx-auto md:mx-0 mb-6 md:mb-0 flex-shrink-0">
+                        <div>
+                            <h4 class="text-2xl font-bold mb-2">A Note From Our Founder</h4>
+                            <p class="text-slate-600 mb-4">"I'm not just a service provider—I'm an active practitioner. I built ViralLaunch after scaling my own TikTok Shops to consistent 5-figure months. The system we build for you isn't based on theory; it's the exact blueprint I use every single day to generate sales. We're not just building you a store, we're giving you a proven model for success."</p>
+                            <p class="font-bold text-slate-800">- Rifat T., Founder of ViralLaunch</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-16">Your Business, Live in 4 Simple Steps</h2>
+                </div>
+                <div class="grid md:grid-cols-4 gap-8 md:gap-4 text-center max-w-7xl mx-auto relative">
+                    <!-- Connector Lines -->
+                    <div class="hidden md:block absolute top-12 left-0 w-full h-1">
+                        <svg width="100%" height="100%"><line x1="0" y1="0" x2="100%" y2="0" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="8 8"></line></svg>
+                    </div>
+
+                    <!-- Step 1 -->
+                    <div class="reveal relative z-10">
+                        <div class="mx-auto w-24 h-24 rounded-full bg-rose-500 text-white flex items-center justify-center border-4 border-slate-50 shadow-lg mb-6"><span class="text-4xl font-bold">1</span></div>
+                        <h3 class="text-xl font-bold mb-2">Strategy Call</h3>
+                        <p class="text-slate-600 px-2">It all starts with a 1-on-1 call. We dive deep into your goals, brand identity, and niche selection to create a customized roadmap for your TikTok Shop.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="reveal relative z-10" style="transition-delay: 200ms;">
+                        <div class="mx-auto w-24 h-24 rounded-full bg-rose-500 text-white flex items-center justify-center border-4 border-slate-50 shadow-lg mb-6"><span class="text-4xl font-bold">2</span></div>
+                        <h3 class="text-xl font-bold mb-2">Build & Stock</h3>
+                        <p class="text-slate-600 px-2">Our expert team gets to work, building your store, designing your brand assets, researching winning products, and automating the supplier backend. This is where the magic happens.</p>
+                    </div>
+                     <!-- Step 3 -->
+                    <div class="reveal relative z-10" style="transition-delay: 400ms;">
+                        <div class="mx-auto w-24 h-24 rounded-full bg-rose-500 text-white flex items-center justify-center border-4 border-slate-50 shadow-lg mb-6"><span class="text-4xl font-bold">3</span></div>
+                        <h3 class="text-xl font-bold mb-2">Review & Launch</h3>
+                        <p class="text-slate-600 px-2">We present the finished store to you for approval. Once you give the green light, we transfer 100% ownership and kickstart the Creator Outreach program to build your social proof.</p>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="reveal relative z-10" style="transition-delay: 600ms;">
+                        <div class="mx-auto w-24 h-24 rounded-full bg-rose-500 text-white flex items-center justify-center border-4 border-slate-50 shadow-lg mb-6"><span class="text-4xl font-bold">4</span></div>
+                        <h3 class="text-xl font-bold mb-2">Scale & Support</h3>
+                        <p class="text-slate-600 px-2">Your automated business is live! You focus on creating content while we provide dedicated support for any questions. Ready to scale? Our ad team is on standby.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bonus Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="bg-rose-500 text-white rounded-3xl p-10 md:p-16 text-center reveal">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6">Plus, Get These Limited-Time Launch Bonuses (Value: $997)</h2>
+                    <p class="text-rose-100 text-lg max-w-2xl mx-auto mb-10">Sign up for any package today and receive these essential tools to accelerate your growth, absolutely free.</p>
+                    <div class="grid md:grid-cols-3 gap-8 text-left max-w-5xl mx-auto">
+                        <div class="bg-rose-600/50 p-6 rounded-xl">
+                            <h3 class="font-bold mb-2">Viral Video Ad Blueprint</h3>
+                            <p class="text-rose-200 text-sm">Our exclusive guide on creating high-converting TikTok video ads, including proven scripts and templates.</p>
+                        </div>
+                        <div class="bg-rose-600/50 p-6 rounded-xl">
+                            <h3 class="font-bold mb-2">Top 50 Viral Niches List</h3>
+                            <p class="text-rose-200 text-sm">Get our internal research document detailing the 50 most profitable and trending niches on TikTok Shop for 2025.</p>
+                        </div>
+                        <div class="bg-rose-600/50 p-6 rounded-xl">
+                            <h3 class="font-bold mb-2">E-commerce Financial Tracker</h3>
+                            <p class="text-rose-200 text-sm">A plug-and-play spreadsheet to effortlessly track your sales, profit margins, and ad spend like a pro.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Choose Your Launch Package</h2>
+                    <p class="text-slate-600 mb-12">One-time investment. No recurring fees. Your business, your profits.</p>
+                </div>
+                <div class="grid lg:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
+                    <!-- Pricing Card 1: Starter Launch -->
+                    <div class="feature-card p-8 flex flex-col reveal">
+                        <h3 class="text-2xl font-bold mb-2">Starter Launch</h3>
+                        <p class="text-slate-500 mb-6">The essentials to get you in the game.</p>
+                        <div class="text-4xl font-extrabold mb-6">$1,499</div>
+                        <ul class="space-y-3 text-slate-600 mb-8 flex-grow">
+                           <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-rose-500 mr-2"></i>Full DFY TikTok Shop Setup</li>
+                           <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-rose-500 mr-2"></i>20 Winning Products Curated</li>
+                           <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-rose-500 mr-2"></i>US Supplier Automation</li>
+                           <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-rose-500 mr-2"></i>Handover & Training</li>
+                           <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-rose-500 mr-2"></i><strong>1 Year</strong> of Technical Support</li>
+                           <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-rose-500 mr-2"></i>Free Launch Bonuses ($997 Value)</li>
+                        </ul>
+                        <a href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/rtanjil99/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=f8fafc&text_color=1e293b&primary_color=f97316'});return false;" class="mt-auto w-full text-center border-2 border-rose-500 text-rose-500 font-semibold px-6 py-3 rounded-lg hover:bg-rose-500 hover:text-white transition-colors">Select Plan</a>
+                    </div>
+                    
+                    <!-- Pricing Card 2: Viral Accelerator (Most Popular) -->
+                    <div class="feature-card p-8 flex flex-col ring-2 ring-rose-500 relative transform lg:scale-105 reveal">
+                        <div class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2">
+                            <span class="bg-rose-500 text-white text-xs font-bold px-4 py-1 rounded-full uppercase">Most Popular</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Viral Accelerator</h3>
+                        <p class="text-slate-500 mb-6">Everything you need to launch and scale.</p>
+                        <div class="text-4xl font-extrabold mb-6">$2,999</div>
+                        <ul class="space-y-3 text-slate-600 mb-8 flex-grow">
+                           <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-rose-500 mr-2"></i>Everything in <strong>Starter</strong>, plus:</li>
+                           <li class="flex items-center font-semibold"><i data-lucide="check" class="w-5 h-5 text-rose-500 mr-2"></i><strong>50</strong> Winning Products Curated</li>
+                           <li class="flex items-center font-semibold"><i data-lucide="check" class="w-5 h-5 text-rose-500 mr-2"></i><strong>Creator Marketing Kit (100+ outreach)</strong></li>
+                           <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-rose-500 mr-2"></i>Advanced Branding Package</li>
+                           <li class="flex items-center font-semibold"><i data-lucide="check" class="w-5 h-5 text-rose-500 mr-2"></i><strong>Lifetime</strong> Priority Support</li>
+                        </ul>
+                         <a href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/rtanjil99/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=f8fafc&text_color=1e293b&primary_color=f97316'});return false;" class="mt-auto w-full text-center gradient-button font-semibold px-6 py-3 rounded-lg">Select Plan</a>
+                    </div>
+
+                    <!-- Pricing Card 3: Market Leader -->
+                    <div class="feature-card p-8 flex flex-col reveal">
+                        <h3 class="text-2xl font-bold mb-2">Market Leader</h3>
+                        <p class="text-slate-500 mb-6">A complete business & marketing solution.</p>
+                        <div class="text-4xl font-extrabold mb-6">Let's Talk</div>
+                        <ul class="space-y-3 text-slate-600 mb-8 flex-grow">
+                           <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-rose-500 mr-2"></i>Everything in <strong>Viral</strong>, plus:</li>
+                           <li class="flex items-center font-semibold"><i data-lucide="check" class="w-5 h-5 text-rose-500 mr-2"></i><strong>1-on-1 Scaling Strategy Session</strong></li>
+                           <li class="flex items-center font-semibold"><i data-lucide="check" class="w-5 h-5 text-rose-500 mr-2"></i><strong>Managed TikTok Ads Setup</strong></li>
+                           <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 text-rose-500 mr-2"></i>Dedicated Account Manager</li>
+                        </ul>
+                        <a href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/rtanjil99/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=f8fafc&text_color=1e293b&primary_color=f97316'});return false;" class="mt-auto w-full text-center border-2 border-rose-500 text-rose-500 font-semibold px-6 py-3 rounded-lg hover:bg-rose-500 hover:text-white transition-colors">Book a Free Call</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Success Stories Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                 <div class="text-center max-w-3xl mx-auto reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-12">From Zero to Viral: Client Success Stories</h2>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Success Story 1 -->
+                    <div class="feature-card flex flex-col p-8 reveal">
+                        <div class="flex-grow">
+                             <img src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt="User" class="w-20 h-20 rounded-full mb-4 border-2 border-rose-500 p-1">
+                             <h3 class="font-extrabold text-2xl text-slate-800 mb-2">$12,800 in 45 Days</h3>
+                             <p class="text-slate-600 mb-4">Jessica, a complete beginner, wanted a side income. We launched her beauty gadget store, and our Creator Program landed a video with 1.2M views in the first month, leading to an explosion in sales.</p>
+                        </div>
+                        <div class="mt-auto pt-4 border-t border-slate-200">
+                             <p class="text-slate-700 font-semibold italic">"I still can't believe this is real. I never thought I could make this kind of money online. ViralLaunch made it happen."</p>
+                             <p class="font-bold text-slate-800 mt-2">- Jessica L, GlowGadget</p>
+                        </div>
+                    </div>
+                     <!-- Success Story 2 -->
+                    <div class="feature-card flex flex-col p-8 reveal" style="transition-delay: 200ms;">
+                        <div class="flex-grow">
+                            <img src="https://i.pravatar.cc/150?u=a042581f4e29026704e" alt="User" class="w-20 h-20 rounded-full mb-4 border-2 border-rose-500 p-1">
+                            <h3 class="font-extrabold text-2xl text-slate-800 mb-2">$21,500 in First 2 Months</h3>
+                            <p class="text-slate-600 mb-4">Mike was a busy professional with capital to invest but no time. We built his home goods store. The focus on fast US shipping led to amazing reviews and a high repeat customer rate from day one.</p>
+                        </div>
+                         <div class="mt-auto pt-4 border-t border-slate-200">
+                             <p class="text-slate-700 font-semibold italic">"This is the perfect hands-free business. The team handled everything flawlessly. Seeing sales notifications while I'm at my day job is the best feeling."</p>
+                             <p class="font-bold text-slate-800 mt-2">- Mike R, HomeHaven</p>
+                        </div>
+                    </div>
+                     <!-- Success Story 3 -->
+                    <div class="feature-card flex flex-col p-8 reveal" style="transition-delay: 400ms;">
+                         <div class="flex-grow">
+                            <img src="https://i.pravatar.cc/150?u=a042581f4e29026704f" alt="User" class="w-20 h-20 rounded-full mb-4 border-2 border-rose-500 p-1">
+                            <h3 class="font-extrabold text-2xl text-slate-800 mb-2">$8,400+ First Month Profit</h3>
+                            <p class="text-slate-600 mb-4">Chloe had tried Shopify dropshipping and failed. Skeptical but hopeful, she launched a pet supply store with us. With zero ad spend, her organic creator videos generated over $8k in pure profit.</p>
+                        </div>
+                         <div class="mt-auto pt-4 border-t border-slate-200">
+                             <p class="text-slate-700 font-semibold italic">"The organic traffic is insane. I was used to burning money on Facebook ads. On TikTok, the sales just... happen. This is the future of e-commerce."</p>
+                             <p class="font-bold text-slate-800 mt-2">- Chloe D, Paws & Play</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-20">
+            <div class="container mx-auto px-6 max-w-3xl">
+                <div class="text-center reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-12">Your Questions, Answered</h2>
+                </div>
+                <div class="space-y-4 reveal">
+                    <!-- FAQ Item 1 -->
+                    <div class="bg-white border border-slate-200 rounded-lg">
+                        <button class="accordion-toggle w-full text-left p-6 flex justify-between items-center">
+                            <span class="font-semibold text-lg">What exactly am I paying for?</span>
+                            <i data-lucide="chevron-down" class="transform transition-transform"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p class="px-6 pb-6 text-slate-600">You're paying for a fully built, ready-to-sell business asset. This includes the professional store build, the research and selection of high-potential products, and the automated integration with reliable US suppliers. It's a one-time fee to skip months of costly trial-and-error.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 2 -->
+                    <div class="bg-white border border-slate-200 rounded-lg">
+                        <button class="accordion-toggle w-full text-left p-6 flex justify-between items-center">
+                            <span class="font-semibold text-lg">Do you do the marketing for me?</span>
+                            <i data-lucide="chevron-down" class="transform transition-transform"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p class="px-6 pb-6 text-slate-600">We kickstart your marketing by contacting 100+ creators for you (in the Viral Accelerator plan). This builds crucial early momentum. Your primary role will be to continue this marketing by creating or sourcing content. For those who want a completely hands-off approach to marketing, we offer a separate, ongoing TikTok Ads Management service.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 3 -->
+                    <div class="bg-white border border-slate-200 rounded-lg">
+                        <button class="accordion-toggle w-full text-left p-6 flex justify-between items-center">
+                            <span class="font-semibold text-lg">Are there any other costs or monthly fees?</span>
+                            <i data-lucide="chevron-down" class="transform transition-transform"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p class="px-6 pb-6 text-slate-600">Our package is a one-time fee. The only other costs you will have are standard business expenses, such as the TikTok Shop transaction fees (which are deducted from your sales) and any budget you choose to spend on marketing (like paid ads or sending products to creators).</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 4 -->
+                    <div class="bg-white border border-slate-200 rounded-lg">
+                        <button class="accordion-toggle w-full text-left p-6 flex justify-between items-center">
+                            <span class="font-semibold text-lg">What kind of profit margins can I expect?</span>
+                            <i data-lucide="chevron-down" class="transform transition-transform"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p class="px-6 pb-6 text-slate-600">We specifically source products with a potential 3x markup or higher. This means if a product costs you $10 from the supplier, we price it at $30 or more. This provides a healthy gross margin to cover marketing costs and generate profit. However, final profit depends on your marketing effectiveness.</p>
+                        </div>
+                    </div>
+                     <!-- FAQ Item 5 -->
+                    <div class="bg-white border border-slate-200 rounded-lg">
+                        <button class="accordion-toggle w-full text-left p-6 flex justify-between items-center">
+                            <span class="font-semibold text-lg">Can I choose my own products or niche?</span>
+                            <i data-lucide="chevron-down" class="transform transition-transform"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p class="px-6 pb-6 text-slate-600">Absolutely! During our initial strategy call, we welcome your input. If you have a specific niche or product category you're passionate about, we will focus our research there. If not, we'll use our expertise to recommend high-potential niches for you to choose from.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="bg-slate-800 rounded-3xl p-10 md:p-16 text-center reveal">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white">Ready to Ditch the Guesswork?</h2>
+                    <p class="text-slate-300 text-lg max-w-2xl mx-auto mb-10">Let's build your hands-free TikTok business together. The next viral product is waiting.</p>
+                    <a href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/rtanjil99/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=f8fafc&text_color=1e293b&primary_color=f97316'});return false;" class="gradient-button text-white font-bold text-lg px-10 py-4 rounded-2xl inline-block pulsing-cta">
+                        Launch My Automated Store
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 bg-white">
+        <div class="container mx-auto px-6 py-8 text-center text-slate-500">
+            <p>&copy; 2025 ViralLaunch. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Sticky Header Shadow on Scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-sm');
+            } else {
+                header.classList.remove('shadow-sm');
+            }
+        });
+        
+        // Scroll Animations
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.05 });
+
+        revealElements.forEach(el => {
+            observer.observe(el);
+        });
+
+        // Accordion Logic
+        const accordionToggles = document.querySelectorAll('.accordion-toggle');
+        accordionToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                const icon = toggle.querySelector('i[data-lucide="chevron-down"]');
+
+                // Close all other accordions first
+                accordionToggles.forEach(otherToggle => {
+                    if (otherToggle !== toggle) {
+                        otherToggle.nextElementSibling.style.maxHeight = null;
+                        otherToggle.querySelector('i[data-lucide="chevron-down"]').style.transform = 'rotate(0deg)';
+                    }
+                });
+                
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
+
